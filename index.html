@@ -1,12 +1,44 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
     <title>Generator hasel</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <div class="result">
+      <h3>Generator haseł</h3>
+      <div class="copy">
+        <span class="material-symbols-outlined"> file_copy </span>
+      </div>
+      <div>
+        <form>
+          <div>
+            <p>Ilość znaków</p>
+            <span class="char-length"></span>
+          </div>
+          <input type="range" name="point" min="0" max="128" step="1" />
+          <div><input type="checkbox" />Posiada wielkie litery</div>
+
+          <div><input type="checkbox" />Posiada małe litery</div>
+          <div><input type="checkbox" />Posiada cyfry</div>
+          <div><input type="checkbox" />Posiada znaki</div>
+          <div class="strength">
+            Moc hasła
+            <div class="str-bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+          <button class="generate">Utwórz hasło</button>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
