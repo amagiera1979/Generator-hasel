@@ -1,34 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
-*{
-    font-family: 'M PLUS Rounded 1c', sans-serif;
-    box-sizing: border-box;
+* {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  box-sizing: border-box;
 }
-body{
-    background-color: rgb(104, 102, 102);
-    color:white;
+body {
+  background-color: rgb(104, 102, 102);
+  color: white;
 }
-.generator{
-margin-left:auto;
-margin-right: auto;
-width: 300px;
-max-height: fit-content;
-background-color: rgb(37, 31, 53);
-margin-top: 100px;
-padding: 20px;
-border-radius: 10px;
+.generator {
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  max-height: fit-content;
+  background-color: rgb(37, 31, 53);
+  margin-top: 100px;
+  padding: 20px;
+  border-radius: 10px;
 }
-h3{
-    text-align: center;
-    padding-bottom: 20px;
+h3 {
+  text-align: center;
+  padding-bottom: 20px;
 }
-.result{
-padding: 20px;
-border: 1px solid rgb(73, 27, 199)
+.result {
+  padding: 20px;
+  border: 1px solid rgb(73, 27, 199);
 }
-.copy{
-    background-color: rgb(38, 36, 43);
-   border-radius: 2px;
-   align-items: flex-end;
-    /* &#xf24d; */
-    
+.copy {
+  background-color: rgb(38, 36, 43);
+  border-radius: 2px;
+  align-items: flex-end;
+  /* &#xf24d; */
+
+}
+input {
+  margin: 10px;
+}
+.strength {
+  margin-top: 10px;
+  padding: 20px;
+  
+}
+.str-bar{
+    display: inline-block;
+width: 100px;
+height:20px;
+padding:5px;
+
+/* display:inline */
+   
+}
+.bar{
+    width: 15px;
+    height:15px;
+    background-color: rgb(73, 27, 199);
+    display:inline-flex;
+    margin-left: 5px;
+    border-radius: 50%;
+
 }
