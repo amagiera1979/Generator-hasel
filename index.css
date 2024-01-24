@@ -24,56 +24,64 @@ h3 {
 .result {
   padding: 20px;
   border: 1px solid rgb(73, 27, 199);
-  
 }
 .copy {
   background-color: rgb(38, 36, 43);
   border-radius: 2px;
- 
+
   min-height: 30px;
   padding: 5px;
   /* &#xf24d; */
+}
+.copy-result {
+  display: inline-flex;
+  min-width: 170px;
+}
 
-}
-.copy-result{
-  display:inline-flex;
-  min-width: 170px
-}
 input {
   margin: 10px;
 }
 .strength {
   margin-top: 10px;
   padding: 20px;
-  
 }
-.str-bar{
-    display: inline-block;
-width: 100px;
-height:20px;
-padding:5px;
+.str-bar {
+  display: inline-block;
+  width: 100px;
+  height: 20px;
+  padding: 5px;
 
-/* display:inline */
-   
+  /* display:inline */
 }
-.bar{
-    width: 15px;
-    height:15px;
-    background-color: rgb(73, 27, 199);
-    display:inline-flex;
-    margin-left: 5px;
-    border-radius: 50%;
-
-}
-.bar-on{
+.bar {
   width: 15px;
-  height:15px;
-  background-color: rgb(119, 80, 226);
-  border: 1px solid white;
-  display:inline-flex;
+  height: 15px;
+  background-color: rgb(73, 27, 199);
+  display: inline-flex;
   margin-left: 5px;
   border-radius: 50%;
 }
-.generate{
-  
+.bar-on {
+  width: 15px;
+  height: 15px;
+  background-color: #7750e2;
+  border: 1px solid white;
+  display: inline-flex;
+  margin-left: 5px;
+  border-radius: 50%;
+}
+button {
+  background-color: rgb(73, 27, 199);
+  color: white;
+  border: 1px solid rgb(38, 36, 43);
+  border-radius: 5px;
+  padding: 8px;
+  min-width: 190px;
+  cursor: pointer
+}
+.btn-gen {
+  text-align: center;
+}
+button:hover{
+  background-color: rgb(93, 51, 209);
 }
