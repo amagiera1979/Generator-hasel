@@ -33,11 +33,20 @@ h3 {
   padding: 5px;
   /* &#xf24d; */
 }
+p {
+  width: 100px;
+}
 .copy-result {
   display: inline-flex;
   min-width: 170px;
 }
-
+.char {
+  display: flexbox;
+}
+.char-length {
+  max-width: 50px;
+  max-height: 20px;
+}
 input {
   margin: 10px;
 }
@@ -77,11 +86,11 @@ button {
   border-radius: 5px;
   padding: 8px;
   min-width: 190px;
-  cursor: pointer
+  cursor: pointer;
 }
 .btn-gen {
   text-align: center;
 }
-button:hover{
+button:hover {
   background-color: rgb(93, 51, 209);
 }
