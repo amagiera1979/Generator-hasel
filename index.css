@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: rgb(104, 102, 102);
+  background-color: rgb(196, 155, 147);
   color: white;
 }
 .generator {
@@ -24,13 +24,20 @@ h3 {
 .result {
   padding: 20px;
   border: 1px solid rgb(73, 27, 199);
+  
 }
 .copy {
   background-color: rgb(38, 36, 43);
   border-radius: 2px;
-  align-items: flex-end;
+ 
+  min-height: 30px;
+  padding: 5px;
   /* &#xf24d; */
 
+}
+.copy-result{
+  display:inline-flex;
+  min-width: 170px
 }
 input {
   margin: 10px;
@@ -57,4 +64,16 @@ padding:5px;
     margin-left: 5px;
     border-radius: 50%;
 
+}
+.bar-on{
+  width: 15px;
+  height:15px;
+  background-color: rgb(119, 80, 226);
+  border: 1px solid white;
+  display:inline-flex;
+  margin-left: 5px;
+  border-radius: 50%;
+}
+.generate{
+  
 }
