@@ -17,9 +17,13 @@ for(let i=32; i<=126; i++){
 }
 
 function addUpCase() {
-    const upC=/[A-Z]/;
-    const up = password.filter([A-Z]);
-    console.log(up)
+    const a= password.toString().match(/[A-Z]/g)
+    //console.log(a)
+
+    // if(upCase.value==='on'){
+    //     const aRand= Math.random()
+    //     console.log(aRand)
+    // }
 
 
 // upCase.value==='on' ? password.push()
