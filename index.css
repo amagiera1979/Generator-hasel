@@ -33,22 +33,31 @@ h3 {
   padding: 5px;
   /* &#xf24d; */
 }
-p {
-  width: 100px;
-}
+
 .copy-result {
   display: inline-flex;
   min-width: 170px;
 }
 .char {
-  display: flexbox;
+  /* text-align: center; */
+  padding: 10px;
+  margin-top: 10px;
+}
+.char-num {
+ min-width: 150px;
+  max-height: 20px;
+  display:inline-block;
 }
 .char-length {
-  max-width: 50px;
+  min-width: 50px;
   max-height: 20px;
+  display:inline-block;
 }
+
+
 input {
   margin: 10px;
+ 
 }
 .strength {
   margin-top: 10px;
