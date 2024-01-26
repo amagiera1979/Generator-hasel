@@ -1,20 +1,14 @@
 const resCopy = document.querySelector('.copy-result');
-const copyIcn = document.querySelector('.material-symbols-outlined');
+// const copyIcn = document.querySelector('.material-symbols-outlined');
 const charLng = document.querySelector('.char-length');
 const suw = document.querySelector('.suw');
 const upCase = document.querySelector('.upCase');
 const lowCase = document.querySelector('.lowCase');
 const numbers = document.querySelector('.numbers');
 const chars = document.querySelector('.chars');
+const button = document.querySelector('.generate');
 const password = [];
 
-// function fillTable() {
-//   for (let i = 32; i <= 126; i++) {
-//     password.push(String.fromCharCode(i));
-//   }
-
-//   console.log(password);
-// }
 // Dodawanie wielkich liter do hasła
 function addUpCase(e) {
   // const uc1= password.toString().match(/[A-Z]/g)
@@ -24,8 +18,11 @@ function addUpCase(e) {
     uc.push(String.fromCharCode(i));
   }
   const ucChecked = e.target.checked;
-  console.log(uc);
 
+  if (ucChecked) {
+    password.push(uc);
+  }
+  // return password;
 }
 // Dodawanie małych liter do hasła
 function addLowCase(e) {
@@ -36,10 +33,11 @@ function addLowCase(e) {
     lc.push(String.fromCharCode(i));
   }
   const lcChecked = e.target.checked;
-  console.log(lc);
-  // console.log(e.target.checked)
-//   resCopy.innerText = lc.join('')
-  
+
+  if (lcChecked) {
+    password.push(lc);
+  }
+  //   resCopy.innerHTML = password.join('');
 }
 
 // Dodawanie cyfr do hasła
@@ -52,13 +50,15 @@ function addNumb(e) {
   }
 
   const numChecked = e.target.checked;
-  console.log(e.target.checked);
-  console.log(num);
+
+  if (numChecked) {
+    password.push(num);
+  }
 }
 
 // Dodawanie znaków do hasła
 function addChar(e) {
-    // const char1 = password.toString().match(/[^0-9][^a-z][^A-Z]/g);
+  // const char1 = password.toString().match(/[^0-9][^a-z][^A-Z]/g);
   const char = [];
 
   for (let i = 32; i <= 126; i++) {
@@ -74,17 +74,23 @@ function addChar(e) {
   }
 
   const charChecked = e.target.checked;
-  console.log(e.target.checked);
-  console.log(char);
-  resCopy.innerText = char.join('')
+
+  if (charChecked) {
+    password.push(char);
+  }
+}
+
+// Generowanie hasła
+function takePassword() {
+  password.join('');
+  resCopy.innerHTML = password;
 }
 
 upCase.addEventListener('input', addUpCase);
 lowCase.addEventListener('input', addLowCase);
 numbers.addEventListener('input', addNumb);
 chars.addEventListener('input', addChar);
-
-
+button.addEventListener('click', takePassword);
 
 function onDragSuw(e) {
   // console.log(e.target.value)
@@ -93,5 +99,3 @@ function onDragSuw(e) {
 }
 
 suw.addEventListener('click', onDragSuw);
-
-// window.addEventListener('load', fillTable);
