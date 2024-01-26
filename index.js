@@ -82,6 +82,7 @@ function addChar(e) {
   const charChecked = e.target.checked;
   console.log(e.target.checked);
   console.log(char);
+  resCopy.innerText = char.join('')
 }
 
 upCase.addEventListener('input', addUpCase);

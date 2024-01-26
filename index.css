@@ -24,19 +24,20 @@ h3 {
 .result {
   padding: 20px;
   border: 1px solid rgb(73, 27, 199);
+  height: fit-content;
 }
 .copy {
   background-color: rgb(38, 36, 43);
   border-radius: 2px;
-
-  min-height: 30px;
   padding: 5px;
+  width: 220px;
+  min-height: 30px;
   /* &#xf24d; */
 }
 
 .copy-result {
-  display: inline-flex;
-  min-width: 170px;
+  word-wrap: break-word;
+  letter-spacing: 2px;
 }
 .char {
   /* text-align: center; */
@@ -44,20 +45,18 @@ h3 {
   margin-top: 10px;
 }
 .char-num {
- min-width: 150px;
+  min-width: 150px;
   max-height: 20px;
-  display:inline-block;
+  display: inline-block;
 }
 .char-length {
   min-width: 50px;
   max-height: 20px;
-  display:inline-block;
+  display: inline-block;
 }
-
 
 input {
   margin: 10px;
- 
 }
 .strength {
   margin-top: 10px;
