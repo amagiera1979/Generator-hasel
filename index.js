@@ -8,16 +8,16 @@ const numbers = document.querySelector('.numbers');
 const chars = document.querySelector('.chars');
 const password = [];
 
-function fillTable() {
-  for (let i = 32; i <= 126; i++) {
-    password.push(String.fromCharCode(i));
-  }
+// function fillTable() {
+//   for (let i = 32; i <= 126; i++) {
+//     password.push(String.fromCharCode(i));
+//   }
 
-  console.log(password);
-}
+//   console.log(password);
+// }
 // Dodawanie wielkich liter do hasła
 function addUpCase(e) {
-  // const uc= password.toString().match(/[A-Z]/g)
+  // const uc1= password.toString().match(/[A-Z]/g)
   const uc = [];
 
   for (let i = 65; i <= 90; i++) {
@@ -26,16 +26,10 @@ function addUpCase(e) {
   const ucChecked = e.target.checked;
   console.log(uc);
 
-  // if(upCase.value==='on'){
-  //     const aRand= Math.random()
-  //     console.log(aRand)
-  //  }
-
-  // upCase.value==='on' ? password.push()
 }
 // Dodawanie małych liter do hasła
 function addLowCase(e) {
-  // const lc= password.toString().match(/[a-z]/g)
+  // const lc1= password.toString().match(/[a-z]/g)
   const lc = [];
 
   for (let i = 97; i <= 122; i++) {
@@ -44,13 +38,13 @@ function addLowCase(e) {
   const lcChecked = e.target.checked;
   console.log(lc);
   // console.log(e.target.checked)
-  resCopy.innerText = lc.join('')
+//   resCopy.innerText = lc.join('')
   
 }
 
 // Dodawanie cyfr do hasła
 function addNumb(e) {
-  // const num= password.toString().match(/[0-9]/g)
+  // const num1= password.toString().match(/[0-9]/g)
   const num = [];
 
   for (let i = 48; i <= 57; i++) {
@@ -64,7 +58,7 @@ function addNumb(e) {
 
 // Dodawanie znaków do hasła
 function addChar(e) {
-  //   const char = password.toString().match(/[^0-9][^a-z][^A-Z]/g);
+    // const char1 = password.toString().match(/[^0-9][^a-z][^A-Z]/g);
   const char = [];
 
   for (let i = 32; i <= 126; i++) {
@@ -90,6 +84,8 @@ lowCase.addEventListener('input', addLowCase);
 numbers.addEventListener('input', addNumb);
 chars.addEventListener('input', addChar);
 
+
+
 function onDragSuw(e) {
   // console.log(e.target.value)
   let suwVal = e.target.value;
@@ -98,4 +94,4 @@ function onDragSuw(e) {
 
 suw.addEventListener('click', onDragSuw);
 
-window.addEventListener('load', fillTable);
+// window.addEventListener('load', fillTable);
