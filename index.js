@@ -13,14 +13,34 @@ const input = document.querySelectorAll('#input-check');
 let inputChecked = 0;
 let password = [];
 
-function strengthPassword(inputChecked){
-  if(inputChecked<=46){
-    strBar.innerHTML='słaba';
-  }else if(inputChecked>=47&&inputChecked<=62){
-    strBar.innerHTML='średnia';
-  }else {
-    strBar.innerHTML='mocna';
+function strengthPassword(inputChecked) {
+  if (inputChecked <= 36) {
+    strBar.innerHTML = 'słaba';
+    (bar[0].className = 'bar-on') && (bar[0].className = 'bar');
+
+    // strBar.innerHTML === 'słaba'
+    //   ? bar[0].classList.replace('bar', 'bar-on')
+    //   : bar[0].classList.replace('bar-on', 'bar');
+  } else if (inputChecked >= 37 && inputChecked <= 51) {
+    strBar.innerHTML = 'średnia';
+    (bar[1].className = 'bar-on') && (bar[1].className = 'bar');
+    // strBar.innerHTML === 'średnia'
+    //   ? bar[1].classList.replace('bar', 'bar-on')
+    //   : bar[1].classList.replace('bar-on', 'bar');
+  } else if (inputChecked >= 52 && inputChecked <= 69) {
+    strBar.innerHTML = 'mocna';
+    strBar.innerHTML === 'mocna'
+      ? bar[2].classList.replace('bar', 'bar-on')
+      : bar[2].classList.replace('bar-on', 'bar');
+  } else if (inputChecked >= 70) {
+    strBar.innerHTML = 'bardzo mocna';
+    strBar.innerHTML === 'bardzo mocna'
+      ? bar[3].classList.replace('bar', 'bar-on')
+      : bar[3].classList.replace('bar-on', 'bar');
   }
+  // bar.forEach((b)=>{
+  //   (strBar.innerHTML === 'słaba') ? bar[0].classList.replace('bar', 'bar-on'): bar[0].classList.replace('bar-on', 'bar');
+  // })
 }
 
 input.forEach(i => {
@@ -79,7 +99,6 @@ input.forEach(i => {
             password.push(String.fromCharCode(a));
             inputChecked++;
           }
-          
         } else {
           if (a >= 32 && a <= 47) {
             password.pop(String.fromCharCode(a));
@@ -94,20 +113,28 @@ input.forEach(i => {
             password.pop(String.fromCharCode(a));
             inputChecked--;
           }
-
-          
         }
       }
     }
     console.log(inputChecked, password);
     // Sprawdzanie mocy hasła
-    strengthPassword(inputChecked)
+    strengthPassword(inputChecked);
 
-  
+    takePassword(password);
   });
 });
+// Generowanie hasła
+function takePassword(password) {
+  button.addEventListener('click', e => {
+    password.join('');
+    resCopy.innerHTML = password;
+  });
+  // password.join('');
 
-// console.log(input);
+  // resCopy.innerHTML = password;
+}
+
+// console.log(password);
 
 // // Dodawanie wielkich liter do hasła
 // function addUpCase(e) {
