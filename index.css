@@ -64,9 +64,10 @@ input {
 }
 .str-bar {
   display: inline-block;
-  width: 100px;
+  width: 110px;
   height: 20px;
   padding: 5px;
+  font-size: 15px;
 
   /* display:inline */
 }
