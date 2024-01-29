@@ -9,8 +9,21 @@ const suw = document.querySelector('.suw');
 const button = document.querySelector('button');
 const strBar = document.querySelector('.str-bar');
 const bar = document.querySelectorAll('.bar');
+const input = document.querySelectorAll('#input-check');
 let inputChecked = 0;
 let password = [];
+
+
+input.forEach(i=>{
+  i.addEventListener('click', e=>{
+e.target.checked
+console.log(e.target.checked);
+  });
+
+  // if()
+})
+
+console.log(input);
 
 // // Dodawanie wielkich liter do hasła
 // function addUpCase(e) {
