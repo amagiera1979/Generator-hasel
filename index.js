@@ -13,17 +13,101 @@ const input = document.querySelectorAll('#input-check');
 let inputChecked = 0;
 let password = [];
 
+function strengthPassword(inputChecked){
+  if(inputChecked<=46){
+    strBar.innerHTML='słaba';
+  }else if(inputChecked>=47&&inputChecked<=62){
+    strBar.innerHTML='średnia';
+  }else {
+    strBar.innerHTML='mocna';
+  }
+}
 
-input.forEach(i=>{
-  i.addEventListener('click', e=>{
-e.target.checked
-console.log(e.target.checked);
+input.forEach(i => {
+  i.addEventListener('click', e => {
+    // Wstawianie wielkich liter
+    if (i.className === 'upCase') {
+      for (let a = 65; a <= 90; a++) {
+        // Sprawdzanie wartości pola checked
+        if (e.target.checked) {
+          password.push(String.fromCharCode(a));
+          inputChecked++;
+        } else {
+          password.pop(String.fromCharCode(a));
+          inputChecked--;
+        }
+      }
+    } else if (i.className === 'lowCase') {
+      // Wstawianie małych liter
+      for (let a = 97; a <= 122; a++) {
+        // Sprawdzanie wartości pola checked
+        if (e.target.checked) {
+          password.push(String.fromCharCode(a));
+          inputChecked++;
+        } else {
+          password.pop(String.fromCharCode(a));
+          inputChecked--;
+        }
+      }
+    } else if (i.className === 'numbers') {
+      // Wstawianie cyfr
+      for (let a = 48; a <= 57; a++) {
+        // Sprawdzanie wartości pola checked
+        if (e.target.checked) {
+          password.push(String.fromCharCode(a));
+          inputChecked++;
+        } else {
+          password.pop(String.fromCharCode(a));
+          inputChecked--;
+        }
+      }
+    } else if (i.className === 'chars') {
+      // Dodawanie znaków
+      for (let a = 32; a <= 126; a++) {
+        // Sprawdzanie wartości pola checked
+        if (e.target.checked) {
+          if (a >= 32 && a <= 47) {
+            password.push(String.fromCharCode(a));
+            inputChecked++;
+          } else if (a >= 58 && a <= 64) {
+            password.push(String.fromCharCode(a));
+            inputChecked++;
+          } else if (a >= 91 && a <= 96) {
+            password.push(String.fromCharCode(a));
+            inputChecked++;
+          } else if (a >= 123 && a <= 126) {
+            password.push(String.fromCharCode(a));
+            inputChecked++;
+          }
+          
+        } else {
+          if (a >= 32 && a <= 47) {
+            password.pop(String.fromCharCode(a));
+            inputChecked--;
+          } else if (a >= 58 && a <= 64) {
+            password.pop(String.fromCharCode(a));
+            inputChecked--;
+          } else if (a >= 91 && a <= 96) {
+            password.pop(String.fromCharCode(a));
+            inputChecked--;
+          } else if (a >= 123 && a <= 126) {
+            password.pop(String.fromCharCode(a));
+            inputChecked--;
+          }
+
+          
+        }
+      }
+    }
+    console.log(inputChecked, password);
+    // Sprawdzanie mocy hasła
+    strengthPassword(inputChecked)
+
+  
   });
+});
 
-  // if()
-})
-
-console.log(input);
+// console.log(input);
 
 // // Dodawanie wielkich liter do hasła
 // function addUpCase(e) {
