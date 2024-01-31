@@ -13,35 +13,37 @@ const input = document.querySelectorAll('#input-check');
 let inputChecked = 0;
 let password = [];
 
+// Funkcja zmieniająca klasę w 'pasku postępu' mocy
+function changeBar(inputChecked) {
+  inputChecked > 10
+    ? (bar[0].className = 'bar-on')
+    : (bar[0].className = 'bar');
+
+  inputChecked > 30
+    ? (bar[1].className = 'bar-on')
+    : (bar[1].className = 'bar');
+
+  inputChecked > 50
+    ? (bar[2].className = 'bar-on')
+    : (bar[2].className = 'bar');
+
+  inputChecked > 70
+    ? (bar[3].className = 'bar-on')
+    : (bar[3].className = 'bar');
+}
+
 // Funkcja sprawdzania mocy hasła
 function strengthPassword(inputChecked) {
   if (inputChecked <= 36) {
     strBar.innerHTML = 'słaba';
-    (bar[0].className = 'bar-on') && (bar[0].className = 'bar');
-
-    // inputChecked <= 36
-    //   ? bar[0].className = 'bar-on'
-    //   : bar[0].className = 'bar';
   } else if (inputChecked >= 37 && inputChecked <= 51) {
     strBar.innerHTML = 'średnia';
-    // (bar[1].className = 'bar-on') && (bar[1].className = 'bar');
-    inputChecked <= 51
-      ? bar[1].classList.replace('bar', 'bar-on')
-      : bar[1].classList.replace('bar-on', 'bar');
   } else if (inputChecked >= 52 && inputChecked <= 69) {
     strBar.innerHTML = 'mocna';
-    inputChecked <= 69
-      ? bar[2].classList.replace('bar', 'bar-on')
-      : bar[2].classList.replace('bar-on', 'bar');
   } else if (inputChecked >= 70) {
     strBar.innerHTML = 'bardzo mocna';
-    inputChecked <= 92
-      ? bar[3].classList.replace('bar', 'bar-on')
-      : bar[3].classList.replace('bar-on', 'bar');
   }
-  // bar.forEach((b)=>{
-  //   (strBar.innerHTML === 'słaba') ? bar[0].classList.replace('bar', 'bar-on'): bar[0].classList.replace('bar-on', 'bar');
-  // })
+  changeBar(inputChecked);
 }
 
 input.forEach(i => {
@@ -117,8 +119,6 @@ input.forEach(i => {
         }
       }
     }
-
-    // Sprawdzanie mocy hasła
     strengthPassword(inputChecked);
 
     takePassword(password);
@@ -133,6 +133,12 @@ function takePassword(password) {
     // Zamiana tablicy na string, aby użyć charAt. Bez join() dokłada przecinki
     let str = password.join('').toString();
     let arr = [];
+
+    console.log(num)
+
+    if (num === '') {
+      alert('Zaznacz długość hasła');
+    }
     // Losowanie znaków
     for (let i = 0; i < num; i++) {
       const res = Math.floor(Math.random() * password.length);
