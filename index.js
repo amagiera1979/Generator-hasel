@@ -18,23 +18,23 @@ function strengthPassword(inputChecked) {
     strBar.innerHTML = 'słaba';
     (bar[0].className = 'bar-on') && (bar[0].className = 'bar');
 
-    // strBar.innerHTML === 'słaba'
-    //   ? bar[0].classList.replace('bar', 'bar-on')
-    //   : bar[0].classList.replace('bar-on', 'bar');
+    // inputChecked <= 36
+    //   ? bar[0].className = 'bar-on'
+    //   : bar[0].className = 'bar';
   } else if (inputChecked >= 37 && inputChecked <= 51) {
     strBar.innerHTML = 'średnia';
-    (bar[1].className = 'bar-on') && (bar[1].className = 'bar');
-    // strBar.innerHTML === 'średnia'
-    //   ? bar[1].classList.replace('bar', 'bar-on')
-    //   : bar[1].classList.replace('bar-on', 'bar');
+    // (bar[1].className = 'bar-on') && (bar[1].className = 'bar');
+    inputChecked <= 51
+      ? bar[1].classList.replace('bar', 'bar-on')
+      : bar[1].classList.replace('bar-on', 'bar');
   } else if (inputChecked >= 52 && inputChecked <= 69) {
     strBar.innerHTML = 'mocna';
-    strBar.innerHTML === 'mocna'
+    inputChecked <= 69
       ? bar[2].classList.replace('bar', 'bar-on')
       : bar[2].classList.replace('bar-on', 'bar');
   } else if (inputChecked >= 70) {
     strBar.innerHTML = 'bardzo mocna';
-    strBar.innerHTML === 'bardzo mocna'
+    inputChecked <= 92
       ? bar[3].classList.replace('bar', 'bar-on')
       : bar[3].classList.replace('bar-on', 'bar');
   }
@@ -116,23 +116,68 @@ input.forEach(i => {
         }
       }
     }
-    console.log(inputChecked, password);
+    // console.log(inputChecked, password);
     // Sprawdzanie mocy hasła
     strengthPassword(inputChecked);
 
     takePassword(password);
+    
   });
 });
-// Generowanie hasła
+
+
 function takePassword(password) {
+ 
   button.addEventListener('click', e => {
-    password.join('');
-    resCopy.innerHTML = password;
+    let num = charLng.innerHTML;
+    let haslo = '';
+    let arr = [];
+   
+    for(let i=0; i<=num.valueOf(); i++){
+      
+      let res = Math.floor(Math.random())
+      haslo.concat()
+      console.log(res)
+      // arr.push(password.charAt(res))
+    }
+
+    resCopy.innerHTML = res;
+    console.log(arr)
+    // console.log(password);
   });
   // password.join('');
 
   // resCopy.innerHTML = password;
 }
+
+function onDragSuw(e) {
+  // console.log(e.target.value)
+  let suwVal = e.target.value;
+  charLng.innerText = suwVal;
+  
+}
+
+suw.addEventListener('click', onDragSuw);
+
+// Generowanie hasła
+
+// button.addEventListener('click', e=>{
+//   let randomPassword = '';
+
+// function takePassword(password) {
+//   console.log(password)
+//   for (let i=0; i<=password.length; i++){
+//     let res = Math.floor(Math.random()*suwVal.length);
+// randomPassword.concat(res);
+//   }
+// }
+
+//   console.log(pass)
+
+  
+//   resCopy.innerHTML = randomPassword;
+
+// })
 
 // console.log(password);
 
@@ -250,12 +295,12 @@ function takePassword(password) {
 // chars.addEventListener('input', addChar);
 // button.addEventListener('click', takePassword);
 
-function onDragSuw(e) {
-  // console.log(e.target.value)
-  let suwVal = e.target.value;
-  charLng.innerText = suwVal;
-}
+// function onDragSuw(e) {
+//   // console.log(e.target.value)
+//   let suwVal = e.target.value;
+//   charLng.innerText = suwVal;
+// }
 
-suw.addEventListener('click', onDragSuw);
+// suw.addEventListener('click', onDragSuw);
 
-console.log(inputChecked);
+// console.log(suw.value);
