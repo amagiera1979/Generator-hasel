@@ -13,6 +13,7 @@ const input = document.querySelectorAll('#input-check');
 let inputChecked = 0;
 let password = [];
 
+// Funkcja sprawdzania mocy hasła
 function strengthPassword(inputChecked) {
   if (inputChecked <= 36) {
     strBar.innerHTML = 'słaba';
@@ -116,45 +117,36 @@ input.forEach(i => {
         }
       }
     }
-    // console.log(inputChecked, password);
+
     // Sprawdzanie mocy hasła
     strengthPassword(inputChecked);
 
     takePassword(password);
-    
   });
 });
 
-
+// Generowanie hasła
 function takePassword(password) {
- 
   button.addEventListener('click', e => {
+    // Z ilu znaków składa się hasło
     let num = charLng.innerHTML;
-    let haslo = '';
+    // Zamiana tablicy na string, aby użyć charAt. Bez join() dokłada przecinki
+    let str = password.join('').toString();
     let arr = [];
-   
-    for(let i=0; i<=num.valueOf(); i++){
-      
-      let res = Math.floor(Math.random())
-      haslo.concat()
-      console.log(res)
-      // arr.push(password.charAt(res))
+    // Losowanie znaków
+    for (let i = 0; i < num; i++) {
+      const res = Math.floor(Math.random() * password.length);
+      arr.push(str.charAt(res));
     }
-
-    resCopy.innerHTML = res;
-    console.log(arr)
-    // console.log(password);
+    // Wyświetlenie hasła. Bez join() dodaje przecinki
+    resCopy.innerHTML = arr.join('');
   });
-  // password.join('');
-
-  // resCopy.innerHTML = password;
 }
 
 function onDragSuw(e) {
   // console.log(e.target.value)
   let suwVal = e.target.value;
   charLng.innerText = suwVal;
-  
 }
 
 suw.addEventListener('click', onDragSuw);
@@ -174,7 +166,6 @@ suw.addEventListener('click', onDragSuw);
 
 //   console.log(pass)
 
-  
 //   resCopy.innerHTML = randomPassword;
 
 // })
