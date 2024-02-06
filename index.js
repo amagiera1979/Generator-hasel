@@ -168,38 +168,43 @@ const bar = document.querySelectorAll('.bar');
 const input = document.querySelectorAll('#input-check');
 
 let inputChecked = 0;
-let password = '';
-
+let password = [];
 
 // Dodawanie wielkich liter do hasła
-input.forEach(i=>{
-    i.addEventListener('click', e=>{
-        if(i.className==='upCase' && e.target.checked){
-            let upCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            password = password.concat('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
-            inputChecked++;
-            // e.target.checked ? inputChecked++ : inputChecked--;
-        }else {
-            
-            password= password.match(/[^A-Z]/);
-            inputChecked--;
-        }
-        
-        if(i.className==='lowCase' && e.target.checked){
-            password = password.concat('abcdefghijklmnopqrstuvwxyz');
-            // e.target.checked ? inputChecked++ : inputChecked--;
-        }else {
-            
-            password= password.match(/[^a-z]/);
-            inputChecked--;
-        }
-        console.log(password, inputChecked)
-    })
-   
-})
+function addUpCase() {
+  let upCase = ['ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
+
+  password = password.concat(upCase);
+  inputChecked++;
+}
+
+function remUpCase() {
+  password = password.match(/[^A-Z]/g);
+  inputChecked--;
+}
+
+input.forEach(i => {
+  i.addEventListener('click', e => {
+    if (i.className === 'upCase') {
+      e.target.checked ? addUpCase() : remUpCase();
+
+      // e.target.checked ? inputChecked++ : inputChecked--;
+      // } else if(e.target.checked!==true){
+    }
+
+    if (i.className === 'lowCase' && e.target.checked) {
+      password = password.concat('abcdefghijklmnopqrstuvwxyz');
+      inputChecked++;
+      // e.target.checked ? inputChecked++ : inputChecked--;
+    } else if (e.target.checked !== true) {
+      password = password.match(/[^a-z]/).toString();
+      inputChecked--;
+    }
+    console.log(password, inputChecked);
+  });
+});
 
 // Dodawanie małych liter do hasła
-
 
 // zaznaczanie mocy hasła
 
@@ -209,8 +214,6 @@ input.forEach(i=>{
 //   resCopy.innerHTML = password;
 // };
 
-
-
 function onDragSuw(e) {
   // console.log(e.target.value)
   let suwVal = e.target.value;
@@ -219,4 +222,4 @@ function onDragSuw(e) {
 
 suw.addEventListener('click', onDragSuw);
 
-console.log(suw.value);
+// console.log(suw.value);
