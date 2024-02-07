@@ -167,41 +167,44 @@ const strBar = document.querySelector('.str-bar');
 const bar = document.querySelectorAll('.bar');
 const input = document.querySelectorAll('#input-check');
 
+const upCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const lowCase = 'abcdefghijklmnopqrstuvwxyz';
+const numbers = '0123456789';
+const chars = " !#$%&'()*+,-./:;<=>?@[]^_`{|}";
+
 let inputChecked = 0;
 let password = '';
-
-// Dodawanie wielkich liter do hasła
-function addUpCase(password) {
-  let upCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  password = password.concat(upCase);
-  inputChecked++;
-}
-
-function remUpCase(password) {
-  const pattern = /[^A-Z]/g;
-  pattern.exec(password);
-}
-
-function addLowCase(password) {
-  let lowCase = 'abcdefghijklmnopqrstuvwxyz';
-  password = password.concat(lowCase);
-  inputChecked++;
-}
-
-function remLowCase(password) {
-  const pattern = /[^a-z]/g;
-  let res2 = pattern.exec(password);
-  return res2;
-}
 
 input.forEach(i => {
   i.addEventListener('click', e => {
     if (i.className === 'upCase') {
-      e.target.checked ? addUpCase(password) : remUpCase(password);
-    }else if (i.className === 'lowCase') {
-      e.target.checked ? addLowCase(password) : remLowCase(password);
+      if (e.target.checked) {
+        password = password.concat(upCase);
+        inputChecked++;
+      } else {
+        inputChecked--;
+      }
+    } else if (i.className === 'lowCase') {
+      if (e.target.checked) {
+        password = password.concat(lowCase);
+        inputChecked++;
+      } else {
+        inputChecked--;
+      }
     } else if (i.className === 'numbers') {
-      e.target.checked ? addNum() : remNum();
+      if (e.target.checked) {
+        password = password.concat(numbers);
+        inputChecked++;
+      } else {
+        inputChecked--;
+      }
+    } else if (i.className === 'chars') {
+      if (e.target.checked) {
+        password = password.concat(chars);
+        inputChecked++;
+      } else {
+        inputChecked--;
+      }
     }
     console.log(password, inputChecked);
   });
@@ -225,4 +228,3 @@ function onDragSuw(e) {
 
 suw.addEventListener('click', onDragSuw);
 
-// console.log(suw.value);
