@@ -178,16 +178,18 @@ let password = '';
 input.forEach(i => {
   i.addEventListener('click', e => {
     if (i.className === 'upCase') {
-      
       if (e.target.checked) {
         password = password.concat(upCase);
         inputChecked++;
       } else {
         const a = password.indexOf('A');
         const b = password.indexOf('Z');
-        console.log(a, b)
-    password =password.
-        console.log(password)
+        a === 0
+          ? (password = password.slice(b + 1, password.length))
+          : (password = password
+              .slice(0, a)
+              .concat(password.slice(b + 1, password.length)));
+
         inputChecked--;
       }
     } else if (i.className === 'lowCase') {
@@ -195,6 +197,13 @@ input.forEach(i => {
         password = password.concat(lowCase);
         inputChecked++;
       } else {
+        const c = password.indexOf('a');
+        const d = password.indexOf('z');
+        c === 0
+          ? (password = password.slice(d + 1, password.length))
+          : (password = password
+              .slice(0, c)
+              .concat(password.slice(d + 1, password.length)));
         inputChecked--;
       }
     } else if (i.className === 'numbers') {
@@ -202,6 +211,13 @@ input.forEach(i => {
         password = password.concat(numbers);
         inputChecked++;
       } else {
+        const e = password.indexOf('0');
+        const f = password.indexOf('9');
+        e === 0
+          ? (password = password.slice(f + 1, password.length))
+          : (password = password
+              .slice(0, e)
+              .concat(password.slice(f + 1, password.length)));
         inputChecked--;
       }
     } else if (i.className === 'chars') {
@@ -209,10 +225,17 @@ input.forEach(i => {
         password = password.concat(chars);
         inputChecked++;
       } else {
+        const g = password.indexOf(' ');
+        const h = password.indexOf('}');
+        g === 0
+          ? (password = password.slice(h + 1, password.length))
+          : (password = password
+              .slice(0, g)
+              .concat(password.slice(h + 1, password.length)));
         inputChecked--;
       }
     }
-    console.log(password, inputChecked);
+    console.log(password, inputChecked, password.length);
   });
 });
 
