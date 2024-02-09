@@ -165,6 +165,7 @@ const input = document.querySelectorAll('#input-check');
 const upCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const lowCase = 'abcdefghijklmnopqrstuvwxyz';
 const numbers = '0123456789';
+// W takim zapisie nie można uwzględnić wszystkich znaków. Brak "" \
 const chars = " !#$%&'()*+,-./:;<=>?@[]^_`{|}";
 
 let inputChecked = 0;
@@ -196,13 +197,16 @@ function strengthPassword(inputChecked) {
   changeBar(inputChecked);
 }
 
+// Wstawianie liter, liczb i znaków do hasła
 input.forEach(i => {
   i.addEventListener('click', e => {
+    // jeśli zaznaczymy checkbox z wielkimi literami
     if (i.className === 'upCase') {
       if (e.target.checked) {
         password = password.concat(upCase);
         inputChecked++;
       } else {
+        // jeśli odznaczymy checkbox - trzeba usunąć fragment z wielkimi literami i zmniejszyć inputChecked
         const a = password.indexOf('A');
         const b = password.indexOf('Z');
         a === 0
@@ -257,16 +261,14 @@ input.forEach(i => {
       }
     }
     strengthPassword(inputChecked);
-    console.log(password, inputChecked, password.length);
+  
   });
 });
 
 // Generowanie hasła
-
 button.addEventListener('click', e => {
   // Z ilu znaków składa się hasło
   let num = charLng.innerHTML;
-
   let result = '';
 
   if (num === '') {
@@ -280,11 +282,11 @@ button.addEventListener('click', e => {
   }
 
   resCopy.innerHTML = result;
-  console.log(result);
+  
 });
 
+// Suwak= ilość znaków
 function onDragSuw(e) {
-  // console.log(e.target.value)
   let suwVal = e.target.value;
   charLng.innerText = suwVal;
 }
