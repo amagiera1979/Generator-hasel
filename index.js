@@ -155,13 +155,8 @@
 // !!!  OBSŁUGA GENERATORA HASEŁ Z GOTOWYMI CIĄGAMI ZNAKÓW
 
 const resCopy = document.querySelector('.copy-result');
-// const copyIcn = document.querySelector('.material-symbols-outlined');
 const charLng = document.querySelector('.char-length');
 const suw = document.querySelector('.suw');
-// const upCase = document.querySelector('.upCase');
-// const lowCase = document.querySelector('.lowCase');
-// const numbers = document.querySelector('.numbers');
-// const chars = document.querySelector('.chars');
 const button = document.querySelector('button');
 const strBar = document.querySelector('.str-bar');
 const bar = document.querySelectorAll('.bar');
@@ -174,6 +169,32 @@ const chars = " !#$%&'()*+,-./:;<=>?@[]^_`{|}";
 
 let inputChecked = 0;
 let password = '';
+
+// Funkcja zmieniająca klasę w 'pasku postępu' mocy
+function changeBar(inputChecked) {
+  inputChecked > 0 ? (bar[0].className = 'bar-on') : (bar[0].className = 'bar');
+
+  inputChecked > 1 ? (bar[1].className = 'bar-on') : (bar[1].className = 'bar');
+
+  inputChecked > 2 ? (bar[2].className = 'bar-on') : (bar[2].className = 'bar');
+
+  inputChecked > 3 ? (bar[3].className = 'bar-on') : (bar[3].className = 'bar');
+}
+
+// Funkcja sprawdzania mocy hasła
+function strengthPassword(inputChecked) {
+  if (inputChecked === 1) {
+    strBar.innerText = 'słaba';
+  } else if (inputChecked === 2) {
+    strBar.innerText = 'średnia';
+  } else if (inputChecked === 3) {
+    strBar.innerText = 'mocna';
+  } else if (inputChecked === 4) {
+    strBar.innerText = 'bardzo mocna';
+  }
+  console.log(strBar.innerHTML);
+  changeBar(inputChecked);
+}
 
 input.forEach(i => {
   i.addEventListener('click', e => {
@@ -235,6 +256,7 @@ input.forEach(i => {
         inputChecked--;
       }
     }
+    strengthPassword(inputChecked);
     console.log(password, inputChecked, password.length);
   });
 });
