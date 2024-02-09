@@ -261,15 +261,27 @@ input.forEach(i => {
   });
 });
 
-// Dodawanie małych liter do hasła
+// Generowanie hasła
 
-// zaznaczanie mocy hasła
+button.addEventListener('click', e => {
+  // Z ilu znaków składa się hasło
+  let num = charLng.innerHTML;
 
-// // Generowanie hasła
-// button.onclick = function takePassword() {
-//   password.join('');
-//   resCopy.innerHTML = password;
-// };
+  let result = '';
+
+  if (num === '') {
+    alert('Zaznacz długość hasła');
+  }
+  // Losowanie znaków
+  for (let i = 0; i < num; i++) {
+    const res = Math.floor(Math.random() * password.length);
+
+    result = result.concat(password.charAt(res));
+  }
+
+  resCopy.innerHTML = result;
+  console.log(result);
+});
 
 function onDragSuw(e) {
   // console.log(e.target.value)
