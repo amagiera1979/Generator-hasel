@@ -178,10 +178,16 @@ let password = '';
 input.forEach(i => {
   i.addEventListener('click', e => {
     if (i.className === 'upCase') {
+      
       if (e.target.checked) {
         password = password.concat(upCase);
         inputChecked++;
       } else {
+        const a = password.indexOf('A');
+        const b = password.indexOf('Z');
+        console.log(a, b)
+    password =password.
+        console.log(password)
         inputChecked--;
       }
     } else if (i.className === 'lowCase') {
@@ -227,4 +233,3 @@ function onDragSuw(e) {
 }
 
 suw.addEventListener('click', onDragSuw);
-
