@@ -16,14 +16,15 @@
         <h3>Generator haseł</h3>
         <div class="copy">
           <div class="copy-result"></div>
-          <div class="material-symbols-outlined">file_copy</div>
+          
+          <!-- <div class="material-symbols-outlined">file_copy</div> -->
         </div>
       </div>
       <div>
         <form>
-          <div>
-            <p>Ilość znaków</p>
-            <span class="char-length"></span>
+          <div class="char">
+            <div class="char-num">Ilość znaków</div>
+            <div class="char-length"></div>
           </div>
           <input
             type="range"
@@ -32,12 +33,17 @@
             max="128"
             step="1"
             class="suw"
+            value=""
           />
-          <div><input type="checkbox" />Posiada wielkie litery</div>
+          <div>
+            <input type="checkbox" id="input-check" class="upCase" />Posiada wielkie litery
+          </div>
 
-          <div><input type="checkbox" />Posiada małe litery</div>
-          <div><input type="checkbox" />Posiada cyfry</div>
-          <div><input type="checkbox" />Posiada znaki</div>
+          <div>
+            <input type="checkbox" id="input-check" class="lowCase" />Posiada małe litery
+          </div>
+          <div><input type="checkbox" id="input-check" class="numbers" />Posiada cyfry</div>
+          <div><input type="checkbox" id="input-check" class="chars" />Posiada znaki</div>
           <div class="strength">
             <p>Moc hasła</p>
             <div class="str-bar"></div>
@@ -46,11 +52,13 @@
             <div class="bar"></div>
             <div class="bar"></div>
           </div>
-          <div class="btn-gen">
-            <button class="generate">Utwórz hasło</button>
-          </div>
+          
         </form>
+        <div class="btn-gen">
+          <button class="generate">Utwórz hasło</button>
+        </div>
       </div>
     </div>
+    <script src="index.js"></script>
   </body>
 </html>
