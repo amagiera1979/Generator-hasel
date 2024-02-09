@@ -261,9 +261,24 @@ input.forEach(i => {
       }
     }
     strengthPassword(inputChecked);
-  
   });
 });
+
+// tworzenie ikony 'kopiuj' i kopiowanie do schowka
+function createCopyIcon() {
+  const icon = document.createElement('i');
+  const div = document.createElement('div');
+  icon.className = 'material-symbols-outlined';
+  icon.innerHTML = 'file_copy';
+  icon.style.marginLeft = '20px';
+  icon.style.height = '10px';
+  icon.style.cursor = 'pointer';
+  div.appendChild(icon);
+  resCopy.appendChild(div);
+  icon.addEventListener('click', e => {
+    navigator.clipboard.writeText(resCopy.innerText);
+  });
+}
 
 // Generowanie hasła
 button.addEventListener('click', e => {
@@ -282,7 +297,8 @@ button.addEventListener('click', e => {
   }
 
   resCopy.innerHTML = result;
-  
+
+  createCopyIcon();
 });
 
 // Suwak= ilość znaków
