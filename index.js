@@ -268,9 +268,10 @@ input.forEach(i => {
 function createCopyIcon() {
   const icon = document.createElement('i');
   const div = document.createElement('div');
+  div.style.textAlign = 'center';
+  div.style.marginTop = '10px';
   icon.className = 'material-symbols-outlined';
   icon.innerHTML = 'file_copy';
-  icon.style.marginLeft = '20px';
   icon.style.height = '10px';
   icon.style.cursor = 'pointer';
   div.appendChild(icon);
